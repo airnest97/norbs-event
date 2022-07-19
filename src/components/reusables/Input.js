@@ -1,16 +1,25 @@
 import "./reusables.css"
 
-const Input = ({text, handleClick, icon, label}) => {
+const Input = ({ text, handleChange, icon, label, fieldError }) => {
   return (
-    <div className="input-container">
+    <div>
+      <div className="input-container">
         <div className="label-container">
-            <label>{label}</label>
+          <label>{label}</label>
         </div>
-        <input type={text} 
-                onChange={handleClick} />
-        <img src={icon} alt="input-icon" />
-    </div>
-  )
-}
 
-export default Input
+        <input name={label} type={text} onChange={handleChange} />
+        <img src={icon} alt="input-icon" />
+
+      </div>
+      <div>
+        <p className={fieldError[label].error ? "fieldError" : "noFieldError"}>
+          {fieldError[label].message}
+        </p>
+      </div>
+
+    </div>
+  );
+};
+
+export default Input;

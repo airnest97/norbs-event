@@ -1,20 +1,20 @@
-.input-container {
+.input-container{
     height: 50px;
     width: 330px;
     border: 1px solid var(--primary_green);
     border-radius: 3px;
     display: flex;
+    margin-top: 9px;
     align-items: center;
     position: relative;
-    margin: 50px 0;
     justify-content: space-between;
     padding: 0 10px;
 }
 
-.label-container {
-    background-color: var(--primary_green);
+.label-container{
+    background-color: rgb(48, 255, 245);
     height: 20px;
-    width: 63px;
+    width: 75px;
     border-radius: 4px;
     position: absolute;
     left: 18px;
@@ -29,20 +29,25 @@
     height: auto;
     border: transparent;
     padding: 0 10px;
-    font-size: 14px;
+    font-size: 16px;
     width: 100%;
     background-color: transparent;
     color: white;
 }
 
-.input-container input:focus-visible {
-    outline: none
+.input-container input:focus-visible{
+    outline: none;
 }
 
-.input-container:focus-within {
+.input-container:focus-within{
     border: 2px solid white;
 }
 
-.input-container img {
+.input-container img{
     height: 16px;
+}
+
+.input-error-container{
+    height: 25px;
+    margin: 10px 0;
 }
