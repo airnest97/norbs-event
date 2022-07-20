@@ -12,7 +12,7 @@ const Input = ({ text, handleChange, icon, label, fieldError }) => {
         <img src={icon} alt="input-icon" />
 
       </div>
-      <div>
+      <div className="input-error-container">
         <p className={fieldError[label].error ? "fieldError" : "noFieldError"}>
           {fieldError[label].message}
         </p>

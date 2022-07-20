@@ -3,15 +3,20 @@ import Input from "../../components/reusables/Input"
 import emailIcon from "../../assets/email.svg"
 import passwordIcon from "../../assets/password.svg"
 import "./authentication.css"
+import StepContainer from "../../components/authentication/register/StepContainer";
 
 
-const Login = () => {
+const Register = () => {
     const [userInput, setUserInput] = useState({})
-
+    const [step, setStep] = useState(1)
     const [fieldError, setFieldError] = useState(
         {
+            firstName: { message: "", error: false },
+            lastName: { message: "", error: false },
             email: { message: "", error: false },
-            password: { message: "", error: false }
+            phoneNumber: { message: "", error: false },
+            password: { message: "", error: false },
+            confirmPassword: { message: "", error: false }
         }
     )
 
@@ -80,31 +85,43 @@ const Login = () => {
         if (e.target.value === ' ') return true
     }
 
-    const checkIfItIsEmail = () => {
-
-    }
 
     return (
         <div className="authenticationContainer">
             <div className="leftSide">
                 <div className="leftSide_container">
                     <a>
-                        Don't have an account?
+                        Have an account?
 
                         <span style={{ color: "var(--primary_green)", marginLeft: '4px' }}>
-                            sign up
+                            Login
                         </span>
                     </a>
                     <div className="welcome-text">
                         <h1>Welcome To Norbs</h1>
-                        <p>We are an event management platform, aimed at helping you facilitate and run a smooth
-                            event</p>
+                        <p>We are an event management platform,
+                            aimed at helping you facilitate and run a smooth event
+                        </p>
                     </div>
-                    <div className="input-button-fields">
-                        <Input text="email" handleChange={handleChange} icon={emailIcon} label="email" fieldError={fieldError} />
-                        <Input text="password" handleChange={handleChange} icon={passwordIcon} label="password" fieldError={fieldError} />
-                        <button className="authentication-button" onClick={handleClick}>Get Into Norbs</button>
-                    </div>
+
+                    {step === 1 && <StepContainer step={1} headerTitle="Let's know you">
+                        <Input text="text" handleChange={handleChange} icon={emailIcon} label="firstName" fieldError={fieldError} />
+                        <Input text="text" handleChange={handleChange} icon={passwordIcon} label="lastName" fieldError={fieldError} />
+                        <Input text="text" handleChange={handleChange} icon={emailIcon} label="email" fieldError={fieldError} />
+                    </StepContainer>}
+
+                    {step === 2 && <StepContainer step={2} headerTitle="Let's Secure Your Details">
+                        <Input text="text" handleChange={handleChange} icon={passwordIcon} label="phoneNumber" fieldError={fieldError} />
+                        <Input text="text" handleChange={handleChange} icon={passwordIcon} label="password" fieldError={fieldError} />
+                        <Input text="text" handleChange={handleChange} icon={passwordIcon} label="confirmPassword" fieldError={fieldError} />
+                    </StepContainer>}
+
+                    {step === 1 && <button onClick={() => setStep(2)} style={{ width: '65%' }} className="authentication-button">Next Step</button>}
+                    {step === 2 &&
+                    <div style={ {display: "flex", justifyContent: "space-between", width: "65%" }}>
+                        <button onClick={() => setStep(1)} style={{ width: '45%' }} className="authentication-button-alternate">Go Back</button>
+                        <button style={{ width: '45%' }} className="authentication-button" onClick={handleClick}>Register</button>
+                    </div>}
                     <div className="social-media">
                         <a>
                             <div className="social-media-icon"></div>
@@ -121,4 +138,4 @@ const Login = () => {
     )
 }
 
-export default Login
+export default Register
