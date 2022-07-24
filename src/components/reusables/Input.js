@@ -1,3 +1,4 @@
+import React from "react";
 import "./reusables.css"
 
 const Input = ({ text, handleChange, icon, label, fieldError }) => {
