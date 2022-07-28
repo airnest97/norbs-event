@@ -6,11 +6,14 @@ import Input from "../../components/reusables/Input"
 import emailIcon from "../../assets/email.svg"
 import passwordIcon from "../../assets/password.svg"
 import "./authentication.css"
+import { useNavigate } from "react-router-dom"
 
 
 const Login = () => {
-    const [userInput, setUserInput] = useState({})
 
+    let navigate = useNavigate()
+
+    const [userInput, setUserInput] = useState({})
     const [fieldError, setFieldError] = useState(
         {
             email: { message: "", error: false },
@@ -90,7 +93,7 @@ const Login = () => {
         <div className="authenticationContainer">
             <div className="leftSide">
                 <div className="leftSide_container">
-                    <a>
+                    <a onClick={() => navigate("/register")}>
                         Don't have an account?
                         <span >
                             <Link to="/" style={{ color: "var(--primary_green)", marginLeft: '4px' }}>  sign up</Link>

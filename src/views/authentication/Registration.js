@@ -9,8 +9,12 @@ import phone from '../../assets/phone.svg'
 import "./authentication.css";
 import Input from "../../components/reusables/Input";
 import StepContainer from "../../components/authentication/register/StepContainer";
+import { useNavigate } from "react-router-dom";
 
 const Registration = () => {
+
+  let navigate = useNavigate()
+
   const [userInput, setUserInput] = useState({});
   const [step, setStep] = useState(1);
   const [fieldError, setFieldError] = useState({
@@ -83,7 +87,7 @@ const Registration = () => {
     <div className="authenticationContainer">
       <div className="leftSide">
         <div className="leftSide_container">
-          <a>
+          <a onClick={() => navigate("/login")}>
             Have an account?
             <span >
               <Link to = "/login" style={{ color: "var(--primary_green)", marginLeft: "4px" }}> sign in</Link>

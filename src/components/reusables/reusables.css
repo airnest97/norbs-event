@@ -13,7 +13,7 @@
 .label-container{
     background-color: white;
     height: 20px;
-    min-width: 65px;
+    min-width: 100px;
     padding: 0 5px;
     border-radius: 4px;
     position: absolute;

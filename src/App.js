@@ -2,26 +2,22 @@ import React from "react";
 import "./App.css";
 import Login from "./views/authentication/Login";
 import Registration from "./views/authentication/Registration";
-import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
+import { Routes, Route} from "react-router-dom";
 
 const App = () => {
   return (
-    <Router>
+    
       <div className="App">
         <div className="content">
-          <Switch>
-            <Route exact path="/">
-              <Registration />
-            </Route>
-
-            <Route path="/login">
-              <Login />
-            </Route>
-          </Switch>
+          <Routes>
+            <Route path="/register" element={<Registration />}/>
+              
+            <Route path="/login" element={<Login />}/>
+            </Routes>
         </div>
       </div>
       
-    </Router>
+  
   );
 };
 
